@@ -1,0 +1,16 @@
+Description: ECR repo test WM Node Test
+Parameters:
+  ECRRepoName:
+    Description: Please provide a name for the ECR Repository where the Docker Image will be stored
+    Type: String
+    Default: CompanyName-BU-FunctionName
+Resources:
+   ECRRepo:
+     Type: AWS::ECR::Repository
+     Properties:
+       RepositoryName: !Ref ECRRepoName
+Outputs:
+   ECRRepoArn:
+     Value: !GetAtt ECRRepo.Arn
+     Export:
+       Name: ECRRepoArn

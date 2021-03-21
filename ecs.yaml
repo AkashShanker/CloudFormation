@@ -1,0 +1,52 @@
+Description: This will deploy a ECS cluster which should have a few tasks running on them
+
+Parameters:
+  ClusterName:
+    Description: Provides a name for the new ECS Cluster
+    Type: String
+    Default: CompanyName-BU-FunctionName
+  EnvironmentName:
+    Description: Just a tag Value
+    Type: String
+    Default: Dev
+  
+Resources:
+  ECSCluster:
+    Type: AWS::ECS::Cluster
+    Properties:
+      CapacityProviders:
+        - FARGATE
+      ClusterName: !Ref ClusterName
+      ClusterSettings:
+        - Name: containerInsights
+          Value: enabled
+  TaskDefinition:
+    Type: AWS::ECS::TaskDefinition
+    Properties:
+      RequiresCompatibilities: 
+        - "FARGATE"
+      ContainerDefinitions:
+        -
+          Name: "my app"
+          MountPoints:
+          -
+            SourceVolume 
+        - ContainerDefinition
+      Cpu: String
+      ExecutionRoleArn: String
+      Family: String
+      InferenceAccelerators: 
+        - InferenceAccelerator
+      IpcMode: String
+      Memory: String
+      NetworkMode: String
+      PidMode: String
+      PlacementConstraints: 
+        - TaskDefinitionPlacementConstraint
+      ProxyConfiguration: 
+        ProxyConfiguration
+      Tags: 
+        - Tag
+      TaskRoleArn: String
+      Volumes: 
+        - Volume

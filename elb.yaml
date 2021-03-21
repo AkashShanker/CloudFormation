@@ -1,0 +1,26 @@
+Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+Parameters:
+  LoadBalancerName:
+    Description: Please provide a identifiable name for the load balancer
+    Type: String
+    Default: CompanyName-BU-FunctionName-elb
+Properties: 
+  IpAddressType: ipv4
+  LoadBalancerAttributes: 
+    - Name: deletion_protection.enabled
+      Value: true
+    - Name: access_logs.s3.enabled
+      Value: true
+    - Name: access_logs.s3.bucket
+      Value: !Ref ELBS3BucketName
+  Name: !Ref LoadBalancerName
+  Scheme: String
+  SecurityGroups: 
+    - String
+  SubnetMappings:
+    - SubnetMapping
+  Subnets: 
+    - String
+  Tags: 
+    - Tag
+  Type: String
