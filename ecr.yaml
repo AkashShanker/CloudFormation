@@ -1,4 +1,4 @@
-Description: ECR repo test WM Node Test
+Description: ECR repo
 Parameters:
   ECRRepoName:
     Description: Please provide a name for the ECR Repository where the Docker Image will be stored
